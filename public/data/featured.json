@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "name": "Title here",
+      "description": "Description here.",
+      "externalink": "#url-here",
+      "coverImage": "palante-buenaventura-bh.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Title here",
+      "description": "Description here.",
+      "externalink": "#url-here",
+      "coverImage": "fopre-bh_1.jpg"
+    }
+]
