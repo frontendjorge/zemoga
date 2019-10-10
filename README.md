@@ -17,6 +17,12 @@ Go to the assets folder then styles folder and select App.scss for custom styles
 - Install dependencies with yarn install
 - Launch project with yarn start
 
+## 🚀 Usage JEST for unit test
+- follow the documentation https://jestjs.io/docs/es-ES/tutorial-react @testing-library
+- It's preconfigured in this project
+- in your console run "npm run test:watch"
+- The parent file App.test.js is watching all changes in the code
+
 ## Demo
 NO DEMO
 
