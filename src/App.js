@@ -1,6 +1,7 @@
 ﻿import React from 'react'
 import "babel-polyfill" //support IE11
 import './assets/styles/App.scss'
+import MainBoard from '../src/components/modules/main'
 
 
 
@@ -9,7 +10,7 @@ function App() {
       
             <div id="app" className="App">
 
-              hola
+              <MainBoard/>
               
             </div>
     

@@ -3,21 +3,697 @@ $LatoBold: 'LatoBold';
 $LatoLight: 'LatoLight';
 $LatoRegular: 'LatoRegular';
 $fontSmall: 13px;
+$fontMediumSmall: 21px;
 $fontMedium: 17px;
 $fontLarge: 30px;
+$fontMediumLarge: 36px;
 $fontExtraLarge: 50px;
+$fontUpperLarge: 60px;
 
-
-.App {
-    min-height: 100vh;
-
+  
+.over-banner {
+  position: absolute;
+  z-index: 110;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
     @include respond-to-mobile(767px){
-        min-height: 100vh;
+        top: 15px;
+    }
+}
+
+.over-banner h1 {
+  margin: 0;
+  font-family: $LatoRegular;
+  font-size: $fontLarge;
+  color:#ffffff;
+    @include respond-to-mobile(767px){
+    text-shadow: 0 0 10px #000000;
+    font-size: $fontMediumSmall;
+    }
+}
+
+.featured-container {
+  position: relative;
+  overflow: hidden;
+    @include respond-to-mobile(767px){
+    overflow: visible;
     }
 
     @include respond-to-ipad(768px, 1024px){
-        min-height: 100vh;
+    overflow: visible;
+    background: #666666; 
+    }
+}
+
+.featured-image .container {
+    @include respond-to-mobile(767px){
+        padding: 0;
+        }  
+  }
+
+.featured-bg {
+  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
+  
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  
+  height: 300px;
+}
+
+.mobile-menu {
+    @include respond-to-mobile(767px){
+        background: rgba(255, 255, 255, .9);
+        top: 25px;
+        text-align: center;
+    }  
+}
+
+.mobile-menu  .main-menu .container-list-menu {
+    @include respond-to-mobile(767px){
+    margin: 0;
+    margin-block-start: 0;
+    list-style: none;
+    padding: 10px 25px;
+    }
+
+  }
+
+  .menu-action-mobile  {
+    @include respond-to-mobile(767px){
+    position: absolute;
+    right: -44%;
+    top: -4px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    }
+  }
+
+  .mobile-menu .main-menu .container-list-menu li {
+    @include respond-to-mobile(767px){
+    color: #000000;
+    display: block;
+    border-bottom: 1px dotted #000000;
+    margin: 12px auto;
+    padding: 0 0 6px 0;
+    }
+  }
+
+  .mobile-menu .main-menu .container-list-menu li a {
+    @include respond-to-mobile(767px){
+    color: #000000;
+    }
+  }
+
+.details-image-general {
+  position: absolute;
+  top: 150px;
+  width: 39%;
+  z-index: 100;
+    @include respond-to-mobile(767px){
+    width: 100%;
+    top: 0px;
+    position: relative;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+    top: 71px;
+    width: 55%;
+    }
+}
+
+.details-image {
+  
+  padding: 0px;
+  color: #ffffff; 
+  
+  background: rgba(34,34,34,0.75) url(../images/bg-banners.png) repeat;
+  
+}
+
+.details-image-inner {
+  padding: 50px 50px 15px 50px;
+    @include respond-to-mobile(767px){
+    padding: 25px 25px 15px 30px;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+    padding: 30px 35px 15px 40px;
+    }
+}
+
+.details-image h3 {
+  margin: -5px 0 15px -4px;
+  font-family: $LatoRegular;
+  font-size: $fontUpperLarge;
+    @include respond-to-mobile(767px){
+    font-size: $fontMediumLarge;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+    font-size: $fontMediumLarge;
+    }
+}
+
+.subtitle-image {
+  font-size: $fontMedium;
+}
+
+.rule-image {
+    font-size: $fontMediumSmall;
+    @include respond-to-mobile(767px){
+    font-size: $fontMedium;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+    font-size: $fontMedium;
+    }
+}
+
+.external-link {
+  display: block;
+  margin: 20px 0;
+  color: #ffffff;
+  padding-left: 23px;
+  font-size: $fontSmall;
+}
+
+.external-link:hover {
+  text-decoration: none;
+  color: #cccccc;
+}
+
+.wiki-icon {
+  background: url(../images/wiki.png) no-repeat left center;
+}
+
+.banner-footer-actions {
+  position: relative;
+  width: 100%;
+}
+
+.banner-footer-title {
+  font-family: $LatoBold;
+  font-size: $fontMediumSmall;
+}
+
+.vote-featured {
+  height: 70px;
+  overflow: hidden;
+}
+
+.vote-up-featured {
+  background: rgba(28,187,180,.8);
+  cursor: pointer;
+}
+
+.vote-up-featured span {
+  background: url(../images/hands.png) no-repeat 0 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  margin: 15px auto;
+  display: block;
+}
+
+.vote-down-featured span {
+  background: url(../images/hands.png) no-repeat -60px 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  margin: 15px auto;
+  display: block;
+}
+
+.vote-down-featured {
+  background: rgba(255,173,29,.8);
+}
+
+.deadline-container {
+  position: relative;
+  z-index: 99;
+  height: 55px;
+  margin-top: -90px;
+  vertical-align: middle;
+    @include respond-to-ipad(768px, 1024px){
+        margin-top: 0px;
+    }
+}
+
+.deadline-title  {
+  background: rgba(112,112,112,.3);
+  font-family: $LatoRegular;
+  font-size: $fontSmall;
+  height: 100%;
+  color: #ffffff;
+    @include respond-to-mobile(767px){
+        background: rgba(112,112,112,.5);
+    }
+}
+
+.deadline-title::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7.5px 0 7.5px 10px;
+  border-width: 7px 0 7px 10px;
+border-color: transparent transparent transparent rgba(112,112,112,.5);
+line-height: 0px;
+_filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
+  position: absolute;
+  right: -10px;
+  z-index: 100;
+  top: 38%;
+  -webkit-transform:rotate(360deg);
+  transform:rotate(360deg)  
+
+}
+
+.deadline-title span {
+  padding-top: 18px;
+  display: block;
+  @include respond-to-ipad(768px, 1024px){
+    padding-top: 30px;
+    display: block;
+    }
+}
+
+.deadline-days {
+  background: rgba(255, 255, 255, .7);
+  font-size: $fontMediumLarge;
+  height: 100%;
+  color: #464646;
+}
+
+.deadline-days span {
+  font-family: $LatoRegular;
+  font-size: $fontMediumLarge;
+  margin: 0px 10px 0px 3px;
+  display: block;
+  float: left;
+}
+
+.main-menu .container-list-menu {
+  margin: 0;
+    @include respond-to-ipad(768px, 1024px){
+        margin: 10px 0 0 0;
+    } 
+}
+
+.main-menu .container-list-menu li {
+  display: inline; 
+  margin-right: 35px;
+  color: #ffffff;
+}
+
+.main-menu .container-list-menu li:last-child {
+  float: right;
+}
+
+.main-menu .container-list-menu li a {
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+.main-menu .container-list-menu li a:hover,
+.main-menu .container-list-menu li a:active,
+.main-menu .container-list-menu li a:focus {
+  color: #cccccc;
+  outline: none;
+  text-decoration: none;
+}
+
+.speak-out-message {
+  margin: 30px auto;
+  background: #ebebeb;
+  padding: 20px;
+  position: relative;
+  clear: both;
+  @include respond-to-mobile(767px){
+    text-align: center;
+    }
+
+}
+
+.close-speak-out {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  cursor: pointer;
+  background: url(../images/close-box.png) no-repeat 0 0;
+  width: 30px;
+  height: 30px;
+  z-index: 99;
+    @include respond-to-mobile(767px){
+    right: 8px;
+    top: 18px;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+    right: 8px;
+    top: 18px;
+    } 
+}
+
+.speak-out-message h3 {
+  color: #333333;
+  font-size: $fontMediumSmall;
+}
+
+.speak-out-message h3 span {
+  font-family: $LatoBold;
+  font-size: $fontMediumLarge;
+}
+
+.speak-out-message p {
+  margin: 30px auto;
+  padding-right: 50px;
+  font-size: $fontSmall;
+  color: #333333;
+    @include respond-to-mobile(767px){
+    padding-right: 0;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+        padding-right: 0;
+    } 
+}
+
+.previous-rulings-module h3 {
+  font-size: $fontMediumLarge;
+  margin: 15px 0;
+  color: #333333;
+  @include respond-to-mobile(767px){
+    text-align: center;
+    }
+}
+
+.ruling-inner {
+  padding: 12px;
+  position: relative;
+  @include respond-to-mobile(767px){
+    padding: 0;
+    position: relative;
+    margin-bottom: 25px;
+    }
+}
+
+.ruling-content {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+    @include respond-to-ipad(768px, 1024px){
+    width: 100%;
+    }
+}
+
+.votes-ruling-total {
+  position: absolute;
+  bottom: 12px;
+  width: 95.8%;
+  display: block;
+  left: 0;
+    @include respond-to-mobile(767px){
+    bottom: 0;
+    width: 100%;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+        width: 93.2%;
+    } 
+}
+
+.bar-total {
+  float: left;
+  width: 50%;
+  height: 50px;
+  font-size: $fontLarge;
+  color: #ffffff;
+}
+
+.bar-total-up {
+  background: rgba(28,187,180,.8)
+}
+
+.bar-total-up span {
+  background: url(../images/hand-up.png) no-repeat 15px 7px;
+  padding-left: 55px;
+}
+
+.bar-total-down {
+  background: rgba(255,173,29,.8) ;
+}
+
+.bar-total-down span {
+  background: url(../images/hand-down.png) no-repeat 66px 7px;
+  padding-right: 55px;
+}
+
+.votes-ruling {
+  position: absolute;
+  bottom: 100px;
+  left: 30px;;
+  width: 100%;
+  color: #ffffff;
+    @include respond-to-mobile(767px){
+    bottom: 80px;
+    }
+}
+
+.votes-ruling-again {
+  position: absolute;
+  bottom: 100px;
+  left: 30px;;
+  width: 100%;
+  color: #ffffff;
+  @include respond-to-mobile(767px){
+    bottom: 80px;
+    }
+}
+
+.vote-up {
+  width: 50px;
+  height: 50px;
+  background: #1EBBB4 url(../images/hand-up.png) no-repeat center;
+  overflow: hidden;
+  text-indent: -2000px;
+  cursor: pointer;
+}
+
+.vote-down {
+  width: 50px;
+  height: 50px;
+  background: #FFAD1D url(../images/hand-down.png) no-repeat center;
+  overflow: hidden;
+  text-indent: -2000px;
+  cursor: pointer;
+}
+
+.vote-active {
+  border:2px solid #ffffff;
+}
+
+.votes-ruling div, .votes-ruling-again div {
+  float: left;
+  margin-right: 20px;
+}
+
+.vote-now, .vote-again {
+  background: rgba(34,34,34,0.45);
+  border: 1px solid #ffffff;
+  padding: 14px 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.description-ruling {
+  position: absolute;
+  bottom: 190px;
+  left: 30px;
+  color: #ffffff;
+  font-size: $fontMedium;
+  padding-right: 70px;
+    @include respond-to-mobile(767px){
+    bottom: 165px;
+    }
+}
+
+.states-ruling-container {
+  position: absolute;
+  bottom: 270px;
+  left: 0px;
+  color: #ffffff;
+  font-size: $fontSmall;
+  width: 100%;
+    @include respond-to-mobile(767px){
+    bottom: 240px;
+    }
+}
+
+.state-ruling {
+  float: left;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  text-indent: -2000px;
+  padding: 12px;
+  margin: 12px 3px 8px 0;
+    @include respond-to-mobile(767px){
+    margin: 0px 3px 8px 0; 
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+    margin: 8px 3px 8px 0; 
+    } 
+}
+
+.default-state-vote {
+  background: #1EBBB4 url(../images/hand-up.png) no-repeat center;
+  background-size: 45%;
+}
+
+.name-ruling {
+  float: left;
+  font-family: $LatoRegular;
+  font-size: $fontMediumLarge;
+  line-height: 100%;
+  width: 90%;
+    @include respond-to-mobile(767px){
+        font-size: $fontLarge;  
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+        font-size: $fontMediumLarge;  
+    }
+
+}
+
+.date-ruling {
+  display: block;
+  clear: both;
+  margin: 0px 0 0 29px;
+}
+
+.date-ruling span {
+  font-family: $LatoBold;
+}
+
+.call-to-action-footer {
+  background: url(../images/calltoaction-footer.jpg) repeat 0 0;
+  height: 80px;
+  color: #333333;
+  width: 98%;
+  margin: 20px auto;
+  font-size: $fontLarge;
+    @include respond-to-mobile(767px){
+        height: 255px;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    @include respond-to-ipad(768px, 1024px){
+        font-size: $fontMediumSmall;
+    }
+}
+
+.call-to-action-footer p {
+  padding: 15px 0 0 20px;
+    @include respond-to-mobile(767px){
+        padding: 40px 0 0 0px;
+        line-height: 100%;
+    }
+}
+
+.submit-name {
+  width: 180px;
+  margin: 12px auto 0 auto;
+  font-size: $fontMediumSmall;
+  border: 2px solid #000000;
+  text-align: center;
+  font-family: $LatoRegular;
+  padding: 10px;
+  cursor: pointer;
+
+    @include respond-to-ipad(768px, 1024px){
+        width: 140px;
+        margin: 16px auto 0 auto;
+        font-size: $fontMedium;
+    }
+}
+
+.submit-name:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.section-footer {
+  padding: 15px 0;
+  margin-bottom: 40px;
+}
+
+.section-footer ul {
+  margin: 0;
+  padding: 0 0 0 10px
+}
+
+.section-footer ul li {
+  display: inline;
+  margin: 10px 20px 0 0;
+}
+
+.section-footer ul li a {
+  color: #333333;
+  font-size: $fontSmall;
+}
+
+.item-text {
+  float: right;
+  margin-right: 20px;
+}
+
+.item-fb {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  background: url(../images/social-icons.png) 0 0 no-repeat;
+  text-indent: -2000px;
+  display: block;
+  float: right;
+  margin-right: 10px;
+}
+
+.item-tw {
+  width: 35px;
+  height: 30px;
+  overflow: hidden;
+  background: url(../images/social-icons.png) -47px 0 no-repeat;
+  text-indent: -2000px;
+  display: block;
+  float: right;
+}
+
+.blank-page {
+  text-align: center;
+  color: #000000;
+  padding-top: 100px;
+}
+
+.follow-cont {
+    @include respond-to-mobile(767px){
+        display: block;
+        margin: 16px auto 30px auto;
+        width: 166px;
+        float: left;
     }
     
-    
-}
+  }
+
+
+
