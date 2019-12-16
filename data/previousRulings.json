@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "name": "Kanye West",
+      "rule": "Grammy Award-winning rapper and record producer and fashion designer.",
+      "externalink": null,
+      "daysToClose": 22,
+      "time": 4,
+      "category": "Entertainment",
+      "thumbImage": "kanye-west.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Mark Zuckerberg",
+      "rule": "Co-founded the social-networking website Facebook out of his college dorm room at Harvard University.",
+      "externalink": null,
+      "daysToClose": 20,
+      "time": 3,
+      "category": "Business",
+      "thumbImage": "mark-zuckerberg.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Cristina Fernández de Kirchner",
+      "rule": "Argentine lawyer and politician who in 2007 became the first female elected president of Argentina.",
+      "externalink": null,
+      "daysToClose": 10,
+      "time": 2,
+      "category": "Politics",
+      "thumbImage": "cristina-fernandez.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Malala Yousafzai",
+      "rule": "Pakistani activist who, while a teenager, spoke out publicly against the prohibition on the education of girls.",
+      "externalink": null,
+      "daysToClose": 30,
+      "time": 2,
+      "category": "Entertainment",
+      "thumbImage": "malala-Yousafzai.jpg"
+    }
+]

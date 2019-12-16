@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/zemoga/static/css/main.92773fc3.chunk.css",
+    "main.js": "/zemoga/static/js/main.54939699.chunk.js",
+    "main.js.map": "/zemoga/static/js/main.54939699.chunk.js.map",
+    "runtime~main.js": "/zemoga/static/js/runtime~main.2430f44c.js",
+    "runtime~main.js.map": "/zemoga/static/js/runtime~main.2430f44c.js.map",
+    "static/js/2.5757e49d.chunk.js": "/zemoga/static/js/2.5757e49d.chunk.js",
+    "static/js/2.5757e49d.chunk.js.map": "/zemoga/static/js/2.5757e49d.chunk.js.map",
+    "index.html": "/zemoga/index.html",
+    "precache-manifest.ad3a774a62cfc467dbb01befcfc73b88.js": "/zemoga/precache-manifest.ad3a774a62cfc467dbb01befcfc73b88.js",
+    "service-worker.js": "/zemoga/service-worker.js",
+    "static/css/main.92773fc3.chunk.css.map": "/zemoga/static/css/main.92773fc3.chunk.css.map",
+    "static/media/index.scss": "/zemoga/static/media/Lato-Regular.e87e43c5.woff",
+    "static/media/App.scss": "/zemoga/static/media/glyphicons-halflings-regular.fa277232.woff"
+  }
+}
