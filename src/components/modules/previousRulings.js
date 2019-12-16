@@ -5,8 +5,6 @@ import getItems from '../utilities/gateway'
 
 class PreviousRulingsModule extends Component {
 
-    
-
     constructor(props) {
         super(props);
         this.state = {
@@ -27,48 +25,103 @@ class PreviousRulingsModule extends Component {
     }
 
     loadPreviousRulings() {
-
         const data = {}
-
         getItems(`/previousRulings.json`, data).then(res => {
             //console.log(res);
             const previousRulings = res.data;
             this.setState({ 
-                previousRulings,
-                initialUpVote: 0,
-                initialDownVote: 0
+                previousRulings
             });
         })
     }
 
-    voteUp(item) {
+    voteUp = (item, id) => {
+        const rulignBox = document.getElementById(id);
+        let cnt = 1;
+        if(rulignBox){
+            rulignBox.querySelector('.vote-up').classList.add('vote-active');
+            rulignBox.querySelector('.vote-down').classList.remove('vote-active');
+            cnt = cnt++;
+            localStorage.setItem("voteRulignUp-"+id, cnt);
+            const getCurrentVoteDown = localStorage.getItem("voteRulignDown-"+id);
+            const removeUpVote = getCurrentVoteDown - 1;
+            localStorage.setItem("voteRulignDown-"+id, removeUpVote);
+            rulignBox.querySelector(".vote-up").classList.add("disabled");
+            rulignBox.querySelector(".vote-down").classList.remove("disabled");
+            rulignBox.querySelector(".vote-now").classList.remove("disabled");
+        }
+        
+    }
 
+   
+
+    voteDown= (item, id) => {
+        const rulignBox = document.getElementById(id);
+        let cnt = 1;
+        if(rulignBox){
+            rulignBox.querySelector('.vote-up').classList.remove('vote-active');
+            rulignBox.querySelector('.vote-down').classList.add('vote-active');
+            cnt = cnt++;
+            localStorage.setItem("voteRulignDown-"+id, cnt);
+            const getCurrentVoteUP = localStorage.getItem("voteRulignUp-"+id);
+            const removeUpVote = getCurrentVoteUP - 1;
+            localStorage.setItem("voteRulignUp-"+id, removeUpVote);
+            rulignBox.querySelector(".vote-down").classList.add("disabled");
+            rulignBox.querySelector(".vote-up").classList.remove("disabled");
+            rulignBox.querySelector(".vote-now").classList.remove("disabled");
+        }
        
-
-
     }
 
-    voteDown(item) {
-        
-       
-    }
-
-    totalVotes(total, num) {
+    totalVotes = (total, num) => {
         
     }
 
-    voteNow(item, id) {
+ 
 
-        console.log(id)
+    voteNow = (item, id) => {
+        //console.log("this is box " +id)
 
-        
+        const getCurrentVoteUp = localStorage.getItem("voteRulignUp-"+id).replace("-","");
+        const getCurrentVoteDown = localStorage.getItem("voteRulignDown-"+id).replace("-","");
+
+        var totalPercent = 50;
+
+        localStorage.setItem("totalVotesRulignUp-"+id, totalPercent + parseInt(getCurrentVoteDown) - getCurrentVoteUp);
+        localStorage.setItem("totalVotesRulignDown-"+id, totalPercent + parseInt(getCurrentVoteUp) - getCurrentVoteDown);
+        const getNewRulignUp = localStorage.getItem("totalVotesRulignUp-"+id);
+        const getNewRulignDown = localStorage.getItem("totalVotesRulignDown-"+id);
+
+        const rulignBox = document.getElementById(id);
+        if(rulignBox){
+            rulignBox.querySelector('.votes-ruling').classList.add('hide');
+            rulignBox.querySelector('.votes-ruling-again').classList.remove('hide');
+            rulignBox.querySelector('.bar-total-up span').innerHTML =  getNewRulignUp + "%";
+            rulignBox.querySelector('.bar-total-down span').innerHTML = getNewRulignDown + "%";
+            rulignBox.querySelector('.bar-total-up').style.width = getNewRulignUp + "%";
+            rulignBox.querySelector('.bar-total-down').style.width = getNewRulignDown + "%";
+            rulignBox.querySelector(".bar-total-up").classList.add("scale-width");
+            rulignBox.querySelector(".bar-total-down").classList.add("scale-width");
+            rulignBox.querySelector(".bar-total-up span").classList.add("tracking-in-expand");
+            rulignBox.querySelector(".bar-total-down span").classList.add("tracking-in-expand");
+
+        }     
     }
 
-    voteAgain(item){
-        const getContainerVotes = document.querySelector("#previousRuling-" + item.id + " .votes-ruling");
-        const getContainerVotesAgain = document.querySelector("#previousRuling-" + item.id + " .votes-ruling-again");
-        getContainerVotes.classList.remove("hide");
-        getContainerVotesAgain.classList.add("hide");
+    voteAgain(item, id){
+        const rulignBox = document.getElementById(id);
+        if(rulignBox){
+            rulignBox.querySelector('.votes-ruling').classList.remove('hide');
+            rulignBox.querySelector('.votes-ruling-again').classList.add('hide');
+            rulignBox.querySelector('.vote-up').classList.remove('vote-active', 'disabled');
+            rulignBox.querySelector('.vote-down').classList.remove('vote-active', 'disabled');
+            rulignBox.querySelector(".bar-total-up").classList.remove("scale-width");
+            rulignBox.querySelector(".bar-total-down").classList.remove("scale-width");
+            rulignBox.querySelector(".bar-total-up span").classList.remove("tracking-in-expand");
+            rulignBox.querySelector(".bar-total-down span").classList.remove("tracking-in-expand");
+            rulignBox.querySelector(".vote-now").classList.add("disabled");
+        }  
+      
     }
 
     render() {
@@ -79,7 +132,7 @@ class PreviousRulingsModule extends Component {
                     <div className="container-rulings">
                     { this.state.previousRulings.map(ruling => {
                             return(
-                                <div id={"previousRuling-"+ruling.id} data-id={ruling.id} key={ruling.id} className="item-ruling col-xs-12 col-sm-6 col-md-6 col-lg-6 nopadding">
+                                <div id={ruling.id} data-id={ruling.id} key={ruling.id} className="item-ruling col-xs-12 col-sm-6 col-md-6 col-lg-6 nopadding">
                                     <div className="ruling-inner">
                                         <div className="ruling-image">
                                              <img className="img-responsive center-block" src={STATIC_PATH + "/rulings/" + ruling.thumbImage } alt={ruling.name} />
@@ -88,21 +141,31 @@ class PreviousRulingsModule extends Component {
                                             <div className="states-ruling-container">
                                                 <div className="state-ruling default-state-vote">OK</div>
                                                 <div className="name-ruling">{ruling.name}</div>
-                                                <div className="date-ruling"><span>{ruling.time + " month ago "}</span>{"in "+ruling.category}</div>
+                                                <div className="date-ruling"><span>{ruling.time + " months ago "}</span>{"in "+ruling.category}</div>
                                                 
                                             </div>
                                             <div className="description-ruling">{ruling.rule}</div>
                                             <div className="votes-ruling">
-                                                <div className="vote-up" onClick={() => this.voteUp(ruling)}>Ok</div>
-                                                <div className="vote-down" onClick={() => this.voteDown(ruling)}>Bad</div>
-                                                <div className="vote-box-action vote-now" onClick={() => this.voteNow(ruling, ruling.id)}>Vote Now</div>
+                                                <div className="vote-up" data-voteup="0" onClick={() => this.voteUp(ruling, ruling.id)}>Ok</div>
+                                                <div className="vote-down" data-votedown="0" onClick={() => this.voteDown(ruling, ruling.id)}>Bad</div>
+                                                <div className="vote-box-action vote-now disabled" onClick={() => this.voteNow(ruling, ruling.id)}>Vote Now</div>
                                             </div>
                                             <div className="votes-ruling-again hide">
-                                                <div className="vote-again" onClick={() => this.voteAgain(ruling)}>Vote Again</div>
+                                                <div className="vote-again" onClick={() => this.voteAgain(ruling, ruling.id)}>Vote Again</div>
                                             </div>
                                             <div className="votes-ruling-total">
-                                                <div className="bar-total-up bar-total"><span>{this.state.initialUpPerc}</span>%</div>
-                                                <div className="bar-total-down bar-total text-right"><span>{this.state.initialDownPerc + "%"}</span></div>
+                                            {localStorage.getItem("totalVotesRulignUp-"+ruling.id) ? (
+                                            <div>
+                                                <div className="bar-total-up bar-total" style={{width: localStorage.getItem("totalVotesRulignUp-"+ruling.id)+'%'}}><span>{localStorage.getItem("totalVotesRulignUp-"+ruling.id)}%</span></div>
+                                                <div className="bar-total-down bar-total text-right" style={{width: localStorage.getItem("totalVotesRulignDown-"+ruling.id)+'%'}}><span>{localStorage.getItem("totalVotesRulignDown-"+ruling.id)}%</span></div>
+                                            </div>
+                                            ) : (
+                                            <div>
+                                                <div className="bar-total-up bar-total"><span>0%</span></div>
+                                                <div className="bar-total-down bar-total text-right"><span>0%</span></div>
+                                            </div>
+                                            )}
+                                               
                                             </div>
                                         </div>
                                         

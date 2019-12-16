@@ -9,8 +9,17 @@ $fontLarge: 30px;
 $fontMediumLarge: 36px;
 $fontExtraLarge: 50px;
 $fontUpperLarge: 60px;
+$whiteColor: #ffffff;
+$blackColor: #000000;
+$greyColor: #666666;
 
-  
+ 
+.disabled {
+    opacity: 0.9;
+    pointer-events: none;
+    cursor: none;
+}
+
 .over-banner {
   position: absolute;
   z-index: 110;
@@ -27,9 +36,9 @@ $fontUpperLarge: 60px;
   margin: 0;
   font-family: $LatoRegular;
   font-size: $fontLarge;
-  color:#ffffff;
+  color:$whiteColor;
     @include respond-to-mobile(767px){
-    text-shadow: 0 0 10px #000000;
+    text-shadow: 0 0 10px $blackColor;
     font-size: $fontMediumSmall;
     }
 }
@@ -43,7 +52,7 @@ $fontUpperLarge: 60px;
 
     @include respond-to-ipad(768px, 1024px){
     overflow: visible;
-    background: #666666; 
+    background: $greyColor; 
     }
 }
 
@@ -55,10 +64,8 @@ $fontUpperLarge: 60px;
 
 .featured-bg {
   /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
-  
   -webkit-filter: blur(10px);
-  filter: blur(10px);
-  
+  filter: blur(10px); 
   height: 300px;
 }
 
@@ -93,9 +100,9 @@ $fontUpperLarge: 60px;
 
   .mobile-menu .main-menu .container-list-menu li {
     @include respond-to-mobile(767px){
-    color: #000000;
+    color: $blackColor;
     display: block;
-    border-bottom: 1px dotted #000000;
+    border-bottom: 1px dotted $blackColor;
     margin: 12px auto;
     padding: 0 0 6px 0;
     }
@@ -103,7 +110,7 @@ $fontUpperLarge: 60px;
 
   .mobile-menu .main-menu .container-list-menu li a {
     @include respond-to-mobile(767px){
-    color: #000000;
+    color: $blackColor;
     }
   }
 
@@ -125,12 +132,9 @@ $fontUpperLarge: 60px;
 }
 
 .details-image {
-  
   padding: 0px;
-  color: #ffffff; 
-  
-  background: rgba(34,34,34,0.75) url(../images/bg-banners.png) repeat;
-  
+  color: $whiteColor; 
+  background: rgba(34,34,34,0.75) url(../images/bg-banners.png) repeat; 
 }
 
 .details-image-inner {
@@ -175,14 +179,14 @@ $fontUpperLarge: 60px;
 .external-link {
   display: block;
   margin: 20px 0;
-  color: #ffffff;
+  color: $whiteColor;
   padding-left: 23px;
   font-size: $fontSmall;
 }
 
 .external-link:hover {
   text-decoration: none;
-  color: #cccccc;
+  color: $greyColor;
 }
 
 .wiki-icon {
@@ -247,7 +251,7 @@ $fontUpperLarge: 60px;
   font-family: $LatoRegular;
   font-size: $fontSmall;
   height: 100%;
-  color: #ffffff;
+  color: $whiteColor;
     @include respond-to-mobile(767px){
         background: rgba(112,112,112,.5);
     }
@@ -306,7 +310,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 .main-menu .container-list-menu li {
   display: inline; 
   margin-right: 35px;
-  color: #ffffff;
+  color: $whiteColor;
 }
 
 .main-menu .container-list-menu li:last-child {
@@ -314,7 +318,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 }
 
 .main-menu .container-list-menu li a {
-  color: #ffffff;
+  color: $whiteColor;
   outline: none;
   cursor: pointer;
 }
@@ -322,7 +326,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 .main-menu .container-list-menu li a:hover,
 .main-menu .container-list-menu li a:active,
 .main-menu .container-list-menu li a:focus {
-  color: #cccccc;
+  color: $greyColor;
   outline: none;
   text-decoration: none;
 }
@@ -360,7 +364,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 }
 
 .speak-out-message h3 {
-  color: #333333;
+  color: $blackColor;
   font-size: $fontMediumSmall;
 }
 
@@ -373,7 +377,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
   margin: 30px auto;
   padding-right: 50px;
   font-size: $fontSmall;
-  color: #333333;
+  color: $blackColor;
     @include respond-to-mobile(767px){
     padding-right: 0;
     }
@@ -386,7 +390,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 .previous-rulings-module h3 {
   font-size: $fontMediumLarge;
   margin: 15px 0;
-  color: #333333;
+  color: $blackColor;
   @include respond-to-mobile(767px){
     text-align: center;
     }
@@ -434,7 +438,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
   width: 50%;
   height: 50px;
   font-size: $fontLarge;
-  color: #ffffff;
+  color: $whiteColor;
 }
 
 .bar-total-up {
@@ -451,8 +455,11 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 }
 
 .bar-total-down span {
-  background: url(../images/hand-down.png) no-repeat 66px 7px;
-  padding-right: 55px;
+  background: url(../images/hand-down.png) no-repeat 67px 7px;
+  padding-right: 58px;
+  @include respond-to-mobile(767px){
+    background-position: 71px 7px;
+    }
 }
 
 .votes-ruling {
@@ -460,7 +467,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
   bottom: 100px;
   left: 30px;;
   width: 100%;
-  color: #ffffff;
+  color: $whiteColor;
     @include respond-to-mobile(767px){
     bottom: 80px;
     }
@@ -471,7 +478,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
   bottom: 100px;
   left: 30px;;
   width: 100%;
-  color: #ffffff;
+  color: $whiteColor;
   @include respond-to-mobile(767px){
     bottom: 80px;
     }
@@ -496,7 +503,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 }
 
 .vote-active {
-  border:2px solid #ffffff;
+  border:2px solid $whiteColor;
 }
 
 .votes-ruling div, .votes-ruling-again div {
@@ -506,7 +513,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 
 .vote-now, .vote-again {
   background: rgba(34,34,34,0.45);
-  border: 1px solid #ffffff;
+  border: 1px solid $whiteColor;
   padding: 14px 15px;
   text-align: center;
   cursor: pointer;
@@ -516,19 +523,26 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
   position: absolute;
   bottom: 190px;
   left: 30px;
-  color: #ffffff;
+  color: $whiteColor;
   font-size: $fontMedium;
   padding-right: 70px;
     @include respond-to-mobile(767px){
-    bottom: 165px;
+        bottom: 170px;
+        padding-right: 30px;
+        font-size: $fontSmall;
     }
+    @include respond-to-ipad(768px, 1024px){
+        bottom: 190px;
+        padding-right: 40px;
+        font-size: $fontSmall;
+    } 
 }
 
 .states-ruling-container {
   position: absolute;
   bottom: 270px;
   left: 0px;
-  color: #ffffff;
+  color: $whiteColor;
   font-size: $fontSmall;
   width: 100%;
     @include respond-to-mobile(767px){
@@ -587,7 +601,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 .call-to-action-footer {
   background: url(../images/calltoaction-footer.jpg) repeat 0 0;
   height: 80px;
-  color: #333333;
+  color: $blackColor;
   width: 98%;
   margin: 20px auto;
   font-size: $fontLarge;
@@ -615,7 +629,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
   width: 180px;
   margin: 12px auto 0 auto;
   font-size: $fontMediumSmall;
-  border: 2px solid #000000;
+  border: 2px solid $blackColor;
   text-align: center;
   font-family: $LatoRegular;
   padding: 10px;
@@ -629,8 +643,8 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 }
 
 .submit-name:hover {
-  background: #000000;
-  color: #ffffff;
+  background: $blackColor;
+  color: $whiteColor;
 }
 
 .section-footer {
@@ -681,7 +695,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
 
 .blank-page {
   text-align: center;
-  color: #000000;
+  color: $blackColor;
   padding-top: 100px;
 }
 
@@ -694,6 +708,7 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
     }
     
   }
+
 
 
 

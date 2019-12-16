@@ -2,49 +2,41 @@
     {
       "id": 1,
       "name": "Kanye West",
-      "rule": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "rule": "Grammy Award-winning rapper and record producer and fashion designer.",
       "externalink": null,
       "daysToClose": 22,
-      "time": 1,
+      "time": 4,
       "category": "Entertainment",
-      "initialVoteUp": 50,
-      "initialVoteDown": 50,
       "thumbImage": "kanye-west.jpg"
     },
     {
       "id": 2,
       "name": "Mark Zuckerberg",
-      "rule": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "rule": "Co-founded the social-networking website Facebook out of his college dorm room at Harvard University.",
       "externalink": null,
       "daysToClose": 20,
-      "time": 1,
+      "time": 3,
       "category": "Business",
-      "initialVoteUp": 50,
-      "initialVoteDown": 50,
       "thumbImage": "mark-zuckerberg.jpg"
     },
     {
       "id": 3,
       "name": "Cristina Fernández de Kirchner",
-      "rule": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "rule": "Argentine lawyer and politician who in 2007 became the first female elected president of Argentina.",
       "externalink": null,
       "daysToClose": 10,
-      "time": 1,
+      "time": 2,
       "category": "Politics",
-      "initialVoteUp": 50,
-      "initialVoteDown": 50,
       "thumbImage": "cristina-fernandez.jpg"
     },
     {
       "id": 4,
       "name": "Malala Yousafzai",
-      "rule": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "rule": "Pakistani activist who, while a teenager, spoke out publicly against the prohibition on the education of girls.",
       "externalink": null,
       "daysToClose": 30,
-      "time": 1,
+      "time": 2,
       "category": "Entertainment",
-      "initialVoteUp": 50,
-      "initialVoteDown": 50,
       "thumbImage": "malala-Yousafzai.jpg"
     }
 ]
